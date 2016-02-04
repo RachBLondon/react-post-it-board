@@ -1,6 +1,7 @@
 <html>
   <body>
     <div id="react-container"></div>
+    <div id="react-container2"></div>
 
     <script type="text/jsx">
     var Note = React.createClass({
@@ -24,11 +25,36 @@
               </span>
              </div>
           );
+        }
+      });
+
+    React.render(
+        <Note> Hello World </Note>,
+    document.getElementById('react-container'));
+
+    var Checkbox = React.createClass({
+      getInitialState : function(){
+        return {checked: false}
+      },
+      handleCheck : function(){
+        this.setState({checked: !this.state.checked})
+      },
+      render: function(){
+        var msg;
+        if (this.state.checked){
+          msg = "checked";
+        } else {
+          msg ="unchecked";
+        }
+        return (<div>
+                  <input type="checkbox" onChange={this.handleCheck} />
+                  <p>This Bos is {msg}</p>
+                </div>);
       }
     });
 
-    React.render(<Note> Hello World </Note>,
-    document.getElementById('react-container'));
+    React.render(<Checkbox />,
+        document.getElementById('react-container'));
     </script>
 
 
