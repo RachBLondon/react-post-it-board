@@ -61,39 +61,25 @@
            }
          }
        },
-
+       getInitialState: function(){
+         return {
+           notes: ['Task one', 'task two']
+         };
+       },
        render: function(){
-         return <div className="board">{this.props.count}</div>
+         return (<div className="board">
+                  {this.state.notes.map(function(note, i){
+                    return (<Note key={i}>{note}</Note>);
+                  })}
+                </div>);
        }
      });
+
+
 
     React.render(
         <Board count={10}/>,
     document.getElementById('react-container'));
-
-    // var Checkbox = React.createClass({
-    //   getInitialState : function(){
-    //     return {checked: false}
-    //   },
-    //   handleCheck : function(){
-    //     this.setState({checked: !this.state.checked})
-    //   },
-    //   render: function(){
-    //     var msg;
-    //     if (this.state.checked){
-    //       msg = "checked";
-    //     } else {
-    //       msg ="unchecked";
-    //     }
-    //     return (<div>
-    //               <input type="checkbox" onChange={this.handleCheck} />
-    //               <p>This Bos is {msg}</p>
-    //             </div>);
-    //   }
-    // });
-    //
-    // React.render(<Checkbox />,
-    //     document.getElementById('react-container2'));
     </script>
 
 
