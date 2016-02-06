@@ -1,4 +1,7 @@
-
+.board{
+  background-image: url('http://b68389.medialib.glogster.com/media/225f04d134bcca04f802e3100ce19bd02fb628337339c9889120bb9e539e48ef/background.jpg');
+  height: 100vh;
+}
 .note {
   height: 300px;
   width: 300px;
